@@ -1,0 +1,4 @@
+reg_number,name,branch,year,current_semester,parent_phone,class_advisor,advisor_email,advisor_phone
+231FA04258,Arjun Sharma,Computer Science and Engineering,3,5,7671831151,Dr. Priya Mehta,priya.mehta@college.edu,9988776655
+231FA05112,Priya Reddy,Electronics and Communication Engineering,3,5,9988001122,Dr. Ramana Murthy,ramana.murthy@college.edu,9876001122
+231FA06075,Rahul Verma,Mechanical Engineering,3,5,8899776655,Prof. Suresh Babu,suresh.babu@college.edu,9871234567

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parent Portal – Login</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="login-page">
+
+  <div class="login-card">
+    <!-- Header -->
+    <div class="login-header">
+      <div class="logo">🎓</div>
+      <h1>Parent Academic Portal</h1>
+      <p>Secure access to your child's academic information</p>
+    </div>
+
+    <!-- Step Indicator -->
+    <div class="steps">
+      <div class="step active" id="step-dot-1"><span>1</span><small>Registration</small></div>
+      <div class="step-line"></div>
+      <div class="step" id="step-dot-2"><span>2</span><small>Phone</small></div>
+      <div class="step-line"></div>
+      <div class="step" id="step-dot-3"><span>3</span><small>OTP</small></div>
+    </div>
+
+    <!-- Step 1: Registration Number -->
+    <div class="step-panel active" id="panel-1">
+      <h2>Enter Registration Number</h2>
+      <p class="hint">Enter your child's student registration number</p>
+      <div class="input-group">
+        <label for="reg_number">Registration Number</label>
+        <input type="text" id="reg_number" placeholder="e.g. CS2021001" maxlength="20" autocomplete="off"/>
+      </div>
+      <div class="error-msg" id="err-1"></div>
+      <button class="btn-primary" id="btn-reg" onclick="verifyRegistration()">Verify &amp; Continue →</button>
+    </div>
+
+    <!-- Step 2: Phone Number -->
+    <div class="step-panel" id="panel-2">
+      <h2>Verify Phone Number</h2>
+      <p class="hint">Select or enter the registered mobile number</p>
+
+      <!-- Registered number buttons (populated by JS) -->
+      <div id="contact-options" style="display:none; margin-bottom:14px;">
+        <p style="font-size:.82rem; font-weight:600; margin-bottom:8px;">Registered numbers:</p>
+        <div id="contact-buttons"></div>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Mobile Number</label>
+        <input type="tel" id="phone" placeholder="e.g. 9876543210" maxlength="15" autocomplete="off"/>
+      </div>
+      <div class="error-msg" id="err-2"></div>
+      <button class="btn-primary" id="btn-phone" onclick="verifyPhone()">Send OTP →</button>
+      <button class="btn-secondary" onclick="goBack(1)">← Back</button>
+    </div>
+
+    <!-- Step 3: OTP -->
+    <div class="step-panel" id="panel-3">
+      <h2>Enter OTP</h2>
+      <p class="hint">A 6-digit OTP has been sent to your registered mobile number</p>
+      <div class="input-group">
+        <label for="otp">One-Time Password</label>
+        <input type="text" id="otp" placeholder="Enter 6-digit OTP" maxlength="6" autocomplete="off"/>
+      </div>
+      <div class="error-msg" id="err-3"></div>
+      <button class="btn-primary" id="btn-otp" onclick="verifyOTP()">Login →</button>
+      <button class="btn-secondary" onclick="goBack(2)">← Back</button>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Verifying...</p>
+    </div>
+  </div>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>

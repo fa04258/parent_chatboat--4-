@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parent Academic Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="chat-page">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">🎓</div>
+      <div>
+        <div class="portal-name">Academic Portal</div>
+        <div class="user-name">{{ student_name }}'s Parent</div>
+      </div>
+    </div>
+
+    <div class="quick-section">
+      <p class="section-label">Quick Actions</p>
+
+      <button class="quick-btn" onclick="sendQuick('overall attendance')">📊 Overall Attendance</button>
+      <button class="quick-btn" onclick="sendQuick('subject attendance')">📚 Subject-wise Attendance</button>
+      <button class="quick-btn" onclick="sendQuick('low attendance alert')">⚠️ Low Attendance Alert</button>
+      <button class="quick-btn" onclick="sendQuick('backlogs')">📋 Backlogs / Academic Status</button>
+      <button class="quick-btn" onclick="sendQuick('marks')">📝 Marks &amp; Grades</button>
+      <button class="quick-btn" onclick="sendQuick('cgpa')">🎓 Current CGPA</button>
+      <button class="quick-btn" onclick="sendQuick('semester cgpa')">📈 Semester-wise CGPA</button>
+      <button class="quick-btn" onclick="sendQuick('year cgpa')">📅 Year-wise CGPA</button>
+      <button class="quick-btn" onclick="sendQuick('upcoming exams')">📅 Upcoming Exams</button>
+      <button class="quick-btn" onclick="sendQuick('fee status')">💰 Fee Status</button>
+      <button class="quick-btn" onclick="sendQuick('faculty contacts')">👨‍🏫 Faculty Contacts</button>
+      <button class="quick-btn" onclick="sendQuick('performance insights')">💡 Performance Insights</button>
+      <button class="quick-btn" onclick="sendQuick('student profile')">🎒 Student Profile</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="/logout" class="logout-btn">🔒 Secure Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Chat Area -->
+  <main class="chat-main">
+    <div class="chat-topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()" title="Toggle Menu">☰</button>
+      <div class="topbar-title">
+        <span>Academic Assistant</span>
+        <span class="online-dot"></span>
+        <small>Online</small>
+      </div>
+      <div class="topbar-actions">
+        <label for="lang-select" class="lang-label" title="Choose response language">🌐</label>
+        <select id="lang-select" class="lang-select" onchange="setLanguage(this.value)" title="Response language">
+          <option value="english">English</option>
+          <option value="hindi">हिन्दी (Hindi)</option>
+          <option value="telugu">తెలుగు (Telugu)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <!-- Messages injected by JS -->
+    </div>
+
+    <div class="chat-input-area">
+      <button class="mic-btn" id="mic-btn" onclick="toggleVoice()" title="Voice Input">🎤</button>
+      <textarea
+        id="user-input"
+        placeholder="Ask about attendance, marks, CGPA, fees, exams..."
+        rows="1"
+        onkeydown="handleKey(event)"
+      ></textarea>
+      <button class="send-btn" onclick="sendMessage()" title="Send">
+        &#9658;
+      </button>
+    </div>
+  </main>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>
