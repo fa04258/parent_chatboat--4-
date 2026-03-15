@@ -51,5 +51,5 @@ def send_otp_sms(phone: str, otp: str) -> bool:
         logger.info(f"OTP SMS sent successfully to {to_number}")
         return True
     except Exception as e:
-        logger.error(f"Failed to send OTP SMS to {phone}: {e}")
+        logger.error(f"Failed to send OTP SMS to {phone}: {type(e).__name__}: {e}")
         return False
